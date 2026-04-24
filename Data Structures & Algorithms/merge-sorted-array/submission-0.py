@@ -1,0 +1,16 @@
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        while n > 0:
+            nums1.pop()
+            n -= 1
+        p = 0
+        while p < len(nums1) and nums2:
+            if nums1 == [] or nums1[p] >= nums2[0]:
+                nums1.insert(p, nums2.pop(0))
+            else:
+                p += 1
+        nums1.extend(nums2)  
+        
